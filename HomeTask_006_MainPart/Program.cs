@@ -104,7 +104,21 @@ namespace HomeTask_006_MainPart
         // Task3 logic
         public static void DrawFigures()
         {
+            Console.WriteLine("Draw figure 1 -- rectangle");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("\n");
+                for (int j = 0; j < 6; j++)
+                {
+                    Console.Write("*");
+                    Console.Write(" ");
+                }
+            }
+            
 
+
+
+            Console.ReadKey();
         }
         // Task4 logic
         public static void CalculatePossibleRoots()
