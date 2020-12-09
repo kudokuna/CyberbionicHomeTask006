@@ -24,16 +24,16 @@ namespace HomeTask_006_MainPart
                 switch (userChoise)
                 {
                     case "2":
-                        
+                        ShowSumAndOddValues();
                         break;
                     case "3":
-                       
+                        DrawFigures();
                         break;
                     case "4":
-
+                        CalculatePossibleRoots();
                         break;
                     case "5":
-
+                        DrawViaSpiderCycle();
                         break;
                     case "exit":
                         isWantToExit = true;
@@ -49,8 +49,59 @@ namespace HomeTask_006_MainPart
         }
         // Task2 logic
         public static void ShowSumAndOddValues(){
-        // Task3 logic
+            Console.ForegroundColor = ConsoleColor.Green;
+            bool isCorrectNumber = false;
+            int userFirstValue = default(int);
+            int userSecondValue = default(int);
+            int summOfValues = default(int);
+
+            while (!isCorrectNumber)
+            {
+                Console.WriteLine("Please enter first integer value...");
+                String userInputString = Console.ReadLine();
+                bool isConvertCorrect = int.TryParse(userInputString, out userFirstValue);
+                if (isConvertCorrect)
+                {
+                    userFirstValue = int.Parse(userInputString);
+                    isCorrectNumber = true;
+                }
+                else Console.WriteLine("Input error, please try again ");
+            }
+
+            isCorrectNumber = false;
+
+            while (!isCorrectNumber)
+            {
+                Console.WriteLine("Please enter second integer value...");
+                String userInputString = Console.ReadLine();
+                bool isConvertCorrect = int.TryParse(userInputString, out userSecondValue);
+                if (isConvertCorrect)
+                {
+                    userSecondValue = int.Parse(userInputString);
+                    if (userSecondValue < userFirstValue) { Console.WriteLine($"Second value must be more than {userFirstValue} -- your selected value as first"); } else isCorrectNumber = true;
+                }
+                else Console.WriteLine("Input error, please try again ");
+            }
+            
+            for (int i = userFirstValue+1; i < userSecondValue; i++)
+            {
+                summOfValues += i;
+            }
+
+            Console.WriteLine($"Summ of values is {summOfValues}");
+            Console.WriteLine($"odd values between {userFirstValue} and {userSecondValue} are ...");
+
+            for (int i = userFirstValue + 1; i < userSecondValue; i++)
+            {
+                if (i % 2 != 0) 
+                {
+                    Console.Write(i + " ");
+                }
+            }
+        
+            Console.ReadKey();
         }
+        // Task3 logic
         public static void DrawFigures()
         {
 
